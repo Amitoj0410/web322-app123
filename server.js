@@ -65,7 +65,7 @@ app.get('/posts', (req,res)=>{
 });
 
 app.post("/posts/add", upload.single("featureImage"), (req,res)=>{
-    res.render('post/add',{
+    res.render('addPost',{
 
     });      
 });
