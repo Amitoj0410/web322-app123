@@ -65,46 +65,9 @@ app.get('/posts', (req,res)=>{
 });
 
 app.post("/posts/add", upload.single("featureImage"), (req,res)=>{
+    res.render('addPost',{
 
-    if(req.file){
-        let streamUpload = (req) => {
-            return new Promise((resolve, reject) => {
-                let stream = cloudinary.uploader.upload_stream(
-                    (error, result) => {
-                        if (result) {
-                            resolve(result);
-                        } else {
-                            reject(error);
-                        }
-                    }
-                );
-    
-                streamifier.createReadStream(req.file.buffer).pipe(stream);
-            });
-        };
-    
-        async function upload(req) {
-            let result = await streamUpload(req);
-            console.log(result);
-            return result;
-        }
-    
-        upload(req).then((uploaded)=>{
-            processPost(uploaded.url);
-        });
-    }else{
-        processPost("");
-    }
-
-    function processPost(imageUrl){
-        req.body.featureImage = imageUrl;
-
-        blogData.addPost(req.body).then(post=>{
-            res.redirect("/posts");
-        }).catch(err=>{
-            res.status(500).send(err);
-        })
-    }   
+    });      
 });
 
 app.get('/posts/add', (req,res)=>{
