@@ -4,7 +4,11 @@ const multer = require("multer");
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 const path = require("path");
+const exphbs = require('express-handlebars');
 const app = express();
+
+app.engine('.hbs', exphbs.engine({ extname: '.hbs' }));
+app.set('view engine', '.hbs');
 
 const HTTP_PORT = process.env.PORT || 8080;
 
