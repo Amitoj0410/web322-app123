@@ -28,7 +28,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/about.html"))
+    //res.sendFile(path.join(__dirname, "/views/about.html"))
+
+    res.render('about', {
+        //data: someData,
+        layout: false // do not use the default Layout (main.hbs)
+    });
 });
 
 app.get('/blog', (req,res)=>{
