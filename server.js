@@ -32,7 +32,7 @@ app.get('/about', (req, res) => {
 
     res.render('about', {
         //data: someData,
-        layout: false // do not use the default Layout (main.hbs)
+        layout: true // do not use the default Layout (main.hbs)
     });
 });
 
