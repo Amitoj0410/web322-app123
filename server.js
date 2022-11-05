@@ -46,8 +46,8 @@ app.engine('.hbs', exphbs.engine({
             //console.log(context.length);
             for(var i = 0; i < context.length; i++) {
                 // ret = ret + "<li>" + options.fn(context[i]) + "</li>";
-                console.log(context[i].id);
-                console.log(context[i].category);
+                // console.log(context[i].id);
+                // console.log(context[i].category);
                 str = str + context[i].id + space + context[i].category + ret;
 
             }
