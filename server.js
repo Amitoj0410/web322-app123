@@ -105,7 +105,7 @@ app.get('/posts', (req,res)=>{
     //     layout: false
     // });
 
-    res.render("posts", {posts: data, layout: false})
+    res.render("posts", {posts: data, layout: false});
 
 });
 
