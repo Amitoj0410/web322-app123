@@ -100,10 +100,12 @@ app.get('/posts', (req,res)=>{
     //     res.json({message: err});
     // });
 
-    res.render('posts',{
-        data: res.json(data),
-        layout: false
-    });
+    // res.render('posts',{
+    //     data: res.json(data),
+    //     layout: false
+    // });
+
+    res.render("posts", {posts: data})
 
 });
 
