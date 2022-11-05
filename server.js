@@ -1,3 +1,16 @@
+/*********************************************************************************
+*  WEB322 – Assignment 04
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part 
+*  of this assignment has been copied manually or electronically from any other source 
+*  (including 3rd party web sites) or distributed to other students.
+* 
+*  Name: Amitoj Singh    Student ID: 159347210   Date: 04/11/2022(dd/mm/yyyy)
+*
+*  Online (Cyclic) Link: ________________________________________________________
+*
+********************************************************************************/ 
+
+
 const express = require('express');
 const blogData = require("./blog-service");
 const multer = require("multer");
@@ -56,6 +69,7 @@ app.engine('.hbs', exphbs.engine({
         } ,
 
         safeHTML: function(context){
+            console.log(context);
             return stripJs(context);
         }
         
@@ -143,7 +157,7 @@ app.get('/blog', async (req, res) => {
     }
 
     // render the "blog" view with all of the data (viewData)
-    res.render("blog", {data: viewData})
+    res.render("blog", {data: viewData});
 
 });
 
