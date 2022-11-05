@@ -7,7 +7,27 @@ const path = require("path");
 const exphbs = require('express-handlebars');
 const app = express();
 
-app.engine('.hbs', exphbs.engine({ extname: '.hbs' }));
+app.engine('.hbs', exphbs.engine({
+    extname: '.hbs',
+    helpers: {
+        navLink: function(url, options){
+            return '<li' + 
+                ((url == app.locals.activeRoute) ? ' class="active" ' : '') + 
+                '><a href="' + url + '">' + options.fn(this) + '</a></li>';
+        } ,
+        
+        equal: function (lvalue, rvalue, options) {
+            if (arguments.length < 3)
+                throw new Error("Handlebars Helper equal needs 2 parameters");
+            if (lvalue != rvalue) {
+                return options.inverse(this);
+            } else {
+                return options.fn(this);
+            }
+        }
+        
+    }
+ }));
 app.set('view engine', '.hbs');
 
 const HTTP_PORT = process.env.PORT || 8080;
