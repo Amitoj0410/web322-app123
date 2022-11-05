@@ -87,3 +87,21 @@ module.exports.getCategories = function(){
         (categories.length > 0 ) ? resolve(categories) : reject("no results returned"); 
     });
 }
+
+module.exports.getPostTitles = function(){
+    return new Promise((resolve,reject)=>{
+        // (posts.length > 0 ) ? resolve(posts.title) : reject("no results returned"); 
+
+        if(posts.length > 0)
+        {
+            for(var i = 0; i < posts.length; i++)
+            {
+                resolve(posts[i].title);
+            }
+        }
+        else
+        {
+            reject("no results returned"); 
+        }
+    });
+}

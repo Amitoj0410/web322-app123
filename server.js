@@ -75,21 +75,27 @@ app.get('/blog', (req,res)=>{
 
 app.get('/posts', (req,res)=>{
 
-    let queryPromise = null;
+    // let queryPromise = null;
 
-    if(req.query.category){
-        queryPromise = blogData.getPostsByCategory(req.query.category);
-    }else if(req.query.minDate){
-        queryPromise = blogData.getPostsByMinDate(req.query.minDate);
-    }else{
-        queryPromise = blogData.getAllPosts()
-    } 
+    // if(req.query.category){
+    //     queryPromise = blogData.getPostsByCategory(req.query.category);
+    // }else if(req.query.minDate){
+    //     queryPromise = blogData.getPostsByMinDate(req.query.minDate);
+    // }else{
+    //     queryPromise = blogData.getAllPosts()
+    // } 
 
-    queryPromise.then(data=>{
-        res.json(data);
-    }).catch(err=>{
-        res.json({message: err});
-    })
+    // queryPromise.then(data=>{
+    //     res.json(data);
+    // }).catch(err=>{
+    //     res.json({message: err});
+    // })
+
+
+    res.render('posts',{
+        // data: ,
+        layout: false
+    });
 
 });
 
