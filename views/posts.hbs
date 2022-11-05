@@ -15,7 +15,9 @@
           <p>
             TODO: render a list of all post title values here <br>
 
-            {{data[0].title}}
+            {{#list data}}
+                Title: {{title}}
+            {{/list}}
 
           </p>
 

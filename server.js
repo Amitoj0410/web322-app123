@@ -24,6 +24,16 @@ app.engine('.hbs', exphbs.engine({
             } else {
                 return options.fn(this);
             }
+        } ,
+
+        list: function(context, options) {
+            var ret = "<br>";
+            
+            for(var i = 0; i < context.length; i++) {
+                // ret = ret + "<li>" + options.fn(context[i]) + "</li>";
+                return options.fn(context[i].title) + ret;
+            }
+            
         }
         
     }
