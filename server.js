@@ -92,18 +92,18 @@ app.get('/posts', (req,res)=>{
     // })
 
 
-    blogData.getAllPosts().then((data=>{
-        // res.json(data);
+    // blogData.getAllPosts().then((data=>{
+    //      res.json(data);
 
-        res.render('posts',{
-            data: res.json(data),
-            layout: false
-        });
-    })).catch(err=>{
-        res.json({message: err});
+       
+    // })).catch(err=>{
+    //     res.json({message: err});
+    // });
+
+    res.render('posts',{
+        data: res.json(data),
+        layout: false
     });
-
-    
 
 });
 
