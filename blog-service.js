@@ -105,3 +105,10 @@ module.exports.getPostTitles = function(){
         }
     });
 }
+
+// module.exports.getPublishedPostsByCategory(category) = function(){
+//     return new Promise((resolve,reject)=>{
+//         let filteredPosts = posts.filter(post => post.category == category);
+//         (filteredPosts.length > 0) ? resolve(filteredPosts) : reject("no results returned");
+//     });
+// }
