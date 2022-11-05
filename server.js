@@ -32,8 +32,23 @@ app.engine('.hbs', exphbs.engine({
             //console.log(context.length);
             for(var i = 0; i < context.length; i++) {
                 // ret = ret + "<li>" + options.fn(context[i]) + "</li>";
-                console.log(context[i].title);
+                //console.log(context[i].title);
                 str = str + context[i].title + ret;
+
+            }
+            return str;
+        } ,
+        
+        categoryList: function(context, options) {
+            var ret = "<br>";
+            var space = "&nbsp;"
+            var str = "";
+            //console.log(context.length);
+            for(var i = 0; i < context.length; i++) {
+                // ret = ret + "<li>" + options.fn(context[i]) + "</li>";
+                console.log(context[i].id);
+                console.log(context[i].category);
+                str = str + context[i].id + space + context[i].category + ret;
 
             }
             return str;
@@ -166,7 +181,8 @@ app.get('/post/:id', (req,res)=>{
 
 app.get('/categories', (req,res)=>{
     blogData.getCategories().then((data=>{
-        res.json(data);
+        // res.json(data);
+        res.render("categories", {categories: data});
     })).catch(err=>{
         res.json({message: err});
     });
