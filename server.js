@@ -26,14 +26,17 @@ app.engine('.hbs', exphbs.engine({
             }
         } ,
 
-        list: function(context, options) {
+        postList: function(context, options) {
             var ret = "<br>";
-            
+            var str = "";
+            //console.log(context.length);
             for(var i = 0; i < context.length; i++) {
                 // ret = ret + "<li>" + options.fn(context[i]) + "</li>";
-                return options.fn(context[i].title) + ret;
+                console.log(context[i].title);
+                str = str + context[i].title + ret;
+
             }
-            
+            return str;
         }
         
     }
