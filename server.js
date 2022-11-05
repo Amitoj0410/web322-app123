@@ -92,10 +92,18 @@ app.get('/posts', (req,res)=>{
     // })
 
 
-    res.render('posts',{
-        // data: ,
-        layout: false
+    blogData.getAllPosts().then((data=>{
+        // res.json(data);
+
+        res.render('posts',{
+            data: res.json(data),
+            layout: false
+        });
+    })).catch(err=>{
+        res.json({message: err});
     });
+
+    
 
 });
 
